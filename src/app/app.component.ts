@@ -3,12 +3,18 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'clo-root',
   template: `
-      <h1>
-        Welcome to {{title}}!
-      </h1>
+      <div (clickOutside)="onClickOutside()">
+        <p>
+          {{ message }}
+        </p>
+      </div>
     `,
-  styles: []
+  styles: ['div { border: 1px solid; }']
 })
 export class AppComponent {
-  title = 'click-outside';
+  message = 'Click outside me!';
+
+  onClickOutside(): void {
+    this.message = 'Click detected!';
+  }
 }
